@@ -7,7 +7,7 @@ This script compares:
 * BASIC Compression
 * OLTP Compression
 * SecureFile LOB Compression
-* 
+  
 ---
 
 # Compression Types Covered

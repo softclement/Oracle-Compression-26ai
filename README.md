@@ -288,9 +288,7 @@ select 'T_LOB',      count(*) from t_lob;
 
 ---
 
-# Expected Learning Outcome
-
-After running this script, you can understand:
+# Learning Outcome
 
 * How Oracle compression reduces storage
 * Difference between BASIC and OLTP compression

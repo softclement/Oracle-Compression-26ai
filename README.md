@@ -3,14 +3,16 @@
 Simple hands-on PoC to explore Oracle Database compression features.
 
 This script compares:
+
 * Normal Heap Table
 * BASIC Compression
 * OLTP Compression
 * SecureFile LOB Compression
-  
+
 ---
 
 # Compression Types Covered
+
 | Table      | Compression Type           |
 | ---------- | -------------------------- |
 | T_NORMAL   | No Compression             |
@@ -21,6 +23,7 @@ This script compares:
 ---
 
 # What This PoC Demonstrates
+
 * Table compression behavior
 * Segment size comparison
 * Compression metadata
@@ -34,7 +37,7 @@ This script compares:
 
 ## BASIC Compression
 
-```sql id="2o0tt5"
+```sql id="y0y8j3"
 compress
 ```
 
@@ -45,7 +48,7 @@ compress
 
 ## OLTP Compression
 
-```sql id="0m6l25"
+```sql id="7rjlwm"
 compress for oltp
 ```
 
@@ -57,7 +60,7 @@ compress for oltp
 
 ## SecureFile Compression
 
-```sql id="s9y8va"
+```sql id="ng2z5g"
 lob(doc) store as securefile
 (
     compress high
@@ -69,9 +72,29 @@ lob(doc) store as securefile
 
 ---
 
+# Compression Effectiveness Depends on Data Pattern
+
+Compression works best when data contains:
+
+* Repeated strings
+* Repeated values
+* Similar patterns
+
+Example:
+
+```text id="9nn86v"
+BANGALORE
+BANGALORE
+BANGALORE
+```
+
+Random data usually compresses poorly.
+
+---
+
 # Oracle Compression PoC Script
 
-```sql id="0wwdml"
+```sql id="zt4w1d"
 ------------------------------------------------------------
 -- ORACLE COMPRESSION PoC
 -- NORMAL vs BASIC vs OLTP vs SECUREFILE LOB
@@ -299,6 +322,9 @@ select 'T_LOB',      count(*) from t_lob;
 ---
 
 # Tested On
-
 * Oracle 26ai
 
+---
+
+
+---
